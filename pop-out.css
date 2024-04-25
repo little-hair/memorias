@@ -1,0 +1,139 @@
+
+:root {
+    --1: #B3B3B3;
+    --2: #D7D7D7;
+    --3: #000;
+    --4: #3A0AA2;
+    --5: #DB5252;
+    --6: #F5F5F5;
+    --7: #E9E9E9;
+    --8: #fff;
+
+}
+
+.design {
+    max-width: 1000px;
+    margin: auto;
+    background-color: var(--6);
+    border-radius: 16px;
+    width: 100%;
+    max-height: 500px;
+    height: 100%;
+}
+
+.header {
+    padding: 12px;
+    background-color: var(--1);
+    border-radius: 14px 14px 0 0px;
+    display: grid;
+    grid-template-columns: 96% 4%;
+    justify-items: end;
+    align-items: center;
+    border-bottom: 1.5px solid var(--3);
+}
+
+.search {
+    padding: 4px;
+    background-color: var(--8);
+    border-radius: 8px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.link {
+    color: var(--4);
+
+}
+
+.close {
+    content: '';
+    width: 25px;
+    height: 25px;
+    background-color: var(--5);
+    border-radius: 50%;
+}
+
+.icon {
+    padding: 5px 8px;
+    border-radius: 8px;
+    background: var(--2);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-close {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity ease-in-out 0.4s;
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    opacity: 100%;
+}
+
+.design,
+.search,
+.close,
+.img {
+    border: 1.5px solid var(--3);
+}
+
+/* contain */
+.contain {
+    padding: 10px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 43% 55%;
+    gap: 16px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 900;
+}
+
+.image {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+small {
+    width: 100%;
+    display: block;
+    background: var(--7);
+    color: var(--4);
+    font-weight: 600;
+    padding: 4px 6px;
+    border-radius: 0 0 10px 10px;
+    border: 1.5px solid var(--3);
+    border-top: none;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+}

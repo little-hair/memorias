@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeline</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .timeline {
+        position: relative;
+        width: 80%;
+        margin: 50px auto;
+    }
+
+    .event {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #007bff;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .event:hover {
+        transform: scale(1.2);
+    }
+
+    .modal {
+        position: absolute;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="timeline">
+    <div class="event" style="left: 10%; top: 50%;" data-year="1940" data-content="Tubos de Vácuo"></div>
+    <div class="event" style="left: 30%; top: 50%;" data-year="1950" data-content="Memória de Tambor Magnético"></div>
+    <div class="event" style="left: 50%; top: 50%;" data-year="1960" data-content="Memória de Núcleo Magnético"></div>
+    <div class="event" style="left: 70%; top: 50%;" data-year="1970" data-content="Memória RAM Dinâmica (DRAM)"></div>
+</div>
+
+<div class="modal" id="modal">
+    <p><strong>Ano:</strong> <span id="modal-year"></span></p>
+    <p><strong>Feito:</strong> <span id="modal-content"></span></p>
+</div>
+
+<script>
+    const events = document.querySelectorAll('.event');
+    const modal = document.getElementById('modal');
+    const modalYear = document.getElementById('modal-year');
+    const modalContent = document.getElementById('modal-content');
+
+    events.forEach(event => {
+        const year = event.getAttribute('data-year');
+        const content = event.getAttribute('data-content');
+        
+        // Criando elementos para exibir o ano e o feito acima do evento
+        const yearElement = document.createElement('div');
+        yearElement.classList.add('year');
+        yearElement.textContent = year;
+        yearElement.style.position = 'absolute';
+        yearElement.style.top = '-20px';
+        yearElement.style.left = '50%';
+        yearElement.style.transform = 'translateX(-50%)';
+        yearElement.style.fontSize = '12px';
+        yearElement.style.fontWeight = 'bold';
+        yearElement.style.color = '#333';
+        event.parentNode.appendChild(yearElement);
+
+        event.addEventListener('mouseover', () => {
+            modalYear.textContent = year;
+            modalContent.textContent = content;
+
+            const rect = event.getBoundingClientRect();
+            modal.style.display = 'block';
+            modal.style.top = rect.top + 'px';
+            modal.style.left = rect.right + 'px';
+        });
+
+        event.addEventListener('mouseout', () => {
+            modal.style.display = 'none';
+        });
+    });
+</script>
+
+</body>
+</html>
