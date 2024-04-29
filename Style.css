@@ -82,6 +82,17 @@ header h1 {
     .hero {
         height: 20vh;
     }
+    header.hero {
+        padding: 0;
+        flex-direction: column;
+    }
+    .hero-overlay {
+        position: static;
+    } 
+    p.desc {
+        position: static;
+        font-size: 10px;
+    }
 }
 
 main {
@@ -115,6 +126,8 @@ p {
 
 a {
     text-decoration: none;
+    font-weight: 600;
+    color: #349de2;
 }
 
 footer {
@@ -122,6 +135,12 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
 }
 
 .grid {
@@ -149,6 +168,7 @@ footer {
     box-shadow: 0px 2px 0px 0px rgba(253, 253, 253, 0);
     width: 33%;
     max-width: 230px;
+    min-width: 185px;
     margin-top: 10px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -212,4 +232,11 @@ table tbody {
 
 td {
     border: 1.5px solid #000;
+}
+
+/* Resposividade */
+@media screen and (max-width: 1000px) {
+    .grid {
+        grid-template-columns: 100%; 
+    }
 }

@@ -19,6 +19,8 @@
     width: 100%;
     max-height: 500px;
     height: 100%;
+    margin-top: 5%;
+    overflow: auto;
 }
 
 .header {
@@ -45,7 +47,7 @@
 
 .link {
     color: var(--4);
-
+    word-break: break-all;
 }
 
 .close {
@@ -132,8 +134,22 @@ small {
 }
 
 /* Responsividade */
-@media screen and (max-width: 768px) {
-    .main {
-        grid-template-columns: 1fr;
+@media screen and (max-width: 1040px) {
+    .design {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .design {
+        height: fit-content;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .header {
+        grid-template-columns: 90% 4%;
+        gap: 8px;
+        justify-items: normal;
     }
 }
